@@ -12,6 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  background: linear-gradient(135deg, #f0f2f5 0%, #d9e4ff 100%);
 }
 
 a {
@@ -168,7 +169,7 @@ h6 {
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #45505b;
+  color:rgb(82, 110, 138);
   padding: 10px 18px;
   margin-bottom: 8px;
   transition: 0.3s;
@@ -274,9 +275,20 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("bg3.png") top right no-repeat;
-  background-size: cover;
+  background: linear-gradient(135deg, #3c80e8 0%, #9b5de5 100%);
   position: relative;
+  overflow: hidden;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(39, 42, 228, 0.15) 0%, transparent 70%);
+  top: -25%;
+  left: -25%;
+  animation: pulse 15s infinite;
 }
 
 @media (min-width: 992px) {
@@ -297,10 +309,13 @@ h6 {
 
 #hero h1 {
   margin: 0;
-  font-size: 64px;
+  font-size: 6rem;
   font-weight: 700;
-  line-height: 56px;
-  color: #000000;
+  line-height: 1.2;
+  background: linear-gradient(to right,rgb(0, 0, 0),rgb(0, 0, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-out;
 }
 
 #hero p {
@@ -311,7 +326,7 @@ h6 {
 }
 
 #hero p span {
-  color: #45505b;
+  color:rgb(224, 205, 173);
   letter-spacing: 1px;
 }
 
@@ -331,7 +346,7 @@ h6 {
 }
 
 #hero .social-links a:hover {
-  color: #45505b;
+  color:rgb(219, 223, 171);
 }
 
 @media (max-width: 992px) {
@@ -1142,8 +1157,12 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
-  width: 100%;
-  background: #fff;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .contact .info i {
@@ -1211,41 +1230,47 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f8f9;
-  color: #45505b;
+  background: linear-gradient(135deg,rgb(23, 52, 121) 0%,rgb(128, 65, 165) 100%);/
+  color: #fff;
   font-size: 14px;
   text-align: center;
-  padding: 30px 0;
+  padding: 10px 0; /* Adjusted padding */
+  height: 15vh; /* Set height to 15vh */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 #footer h3 {
-  font-size: 36px;
-  font-weight: 700;
-  position: relative;
+  font-size: 20px; /* Reduced size for better fit */
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
-  padding: 0;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
+  color: #fff;
+  margin-top: 5px;
 }
 
 #footer p {
-  font-size: 15;
+  font-size: 14px; /* Reduced font size */
   font-style: italic;
-  padding: 0;
-  margin: 0 0 40px 0;
+  margin: 0 0 15px 0;
+  color: #fff;
 }
 
 #footer .social-links {
-  margin: 0 0 40px 0;
+  margin: 0 0 10px 0;
 }
 
 #footer .social-links a {
-  font-size: 18px;
+  font-size: 18px; /* Reduced icon size */
   display: inline-block;
-  background: #0563bb;
+  background:rgb(31, 94, 153);
   color: #fff;
   line-height: 1;
-  padding: 8px 0;
-  margin-right: 4px;
+  padding: 10px 0; /* Adjusted padding for smaller space */
+  margin-right: 8px;
   border-radius: 50%;
   text-align: center;
   width: 36px;
@@ -1260,9 +1285,10 @@ section {
 }
 
 #footer .copyright {
-  margin: 0 0 5px 0;
+  margin: 0;
 }
 
 #footer .credits {
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 400;
 }
