@@ -65,8 +65,8 @@
           { src: './approval-system/approved_status.png', description: 'Approval Status' }
         ],  
 'popup-trigger-8': [ 
-          { src: './resumeBank/resume_dashboard.png', description: 'Resume Dashboard' },
-          { src: './resumeBank/position_details.png', description: 'Detailed view of Positions.' }
+          { src: './resumebank/resume_dashboard.png', description: 'Resume Dashboard' },
+          { src: './resumeBank/detailed_positions.png', description: 'Detailed view of Positions.' }
         ],  
       };
 
