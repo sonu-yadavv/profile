@@ -53,7 +53,23 @@
           { src: './amazon-clone/login.png', description: 'Sign In Page' },
           { src: './amazon-clone/checkout.png', description: 'Checkout Page' }  
         ],  
+'popup-trigger-6': [ 
+          { src: './mes-system/dashboard.png', description: 'Dashboard' },
+          { src: './mes-system/production.png', description: 'Production' },
+          { src: './mes-system/inspection.png', description: 'Inspection' },
+{ src: './mes-system/inspectionList.png', description: 'Inspection List' }
+], 
+'popup-trigger-7': [ 
+          { src: './approval-system/email_approval.png', description: 'Approval Email Notification' },
+          { src: './approval-system/approval_page.png', description: 'Approval Page' },
+          { src: './approval-system/approved_status.png', description: 'Approval Status' }
+        ],  
+'popup-trigger-8': [ 
+          { src: './resumeBank/resume_dashboard.png', description: 'Resume Dashboard' },
+          { src: './resumeBank/position_details.png', description: 'Detailed view of Positions.' }
+        ],  
       };
+
 
       let currentImageIndex = 0;
       let currentImageSet = [];
