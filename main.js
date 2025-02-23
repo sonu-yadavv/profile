@@ -66,7 +66,7 @@
         ],  
 'popup-trigger-8': [ 
           { src: './resumebank/resume_dashboard.png', description: 'Resume Dashboard' },
-          { src: './resumeBank/detailed_positions.png', description: 'Detailed view of Positions.' }
+          { src: './resumebank/detailed_positions.png', description: 'Detailed view of Positions.' }
         ],  
       };
 
