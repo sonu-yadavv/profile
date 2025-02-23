@@ -55,7 +55,7 @@
         ],  
 'popup-trigger-6': [ 
           { src: './mes-system/dashboard.png', description: 'Dashboard' },
-          { src: './mes-system/production.png', description: 'Production' },
+          { src: './mes-system/productionTracking.png', description: 'Production Tracking' },
           { src: './mes-system/inspection.png', description: 'Inspection' },
 { src: './mes-system/inspectionList.png', description: 'Inspection List' }
 ], 
