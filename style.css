@@ -1163,6 +1163,27 @@ section {
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 100%; /* Full width on small screens */
+  max-width: 1200px;
+}
+@media (min-width: 768px) {
+  .contact .info {
+    width: 768px; /* Make it take 90% of the screen width */
+  }
+}
+
+/* For larger screens (desktops and up) */
+@media (min-width: 1024px) {
+  .contact .info {
+    width: 1024px; /* Make it take 80% of the screen width */
+  }
+}
+
+/* For very large screens (large desktops) */
+@media (min-width: 1200px) {
+  .contact .info {
+    width: 1200px; /* Use 75% width for larger desktops */
+  }
 }
 
 .contact .info i {
