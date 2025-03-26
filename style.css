@@ -190,7 +190,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #e0e0e0;
+  color: #000000;
   transition: all 0.3s ease;
 }
 
@@ -204,7 +204,7 @@ h1, h2, h3, h4, h5, h6 {
   .nav-menu a span,
   .nav-menu a:focus span {
     display: none;
-    color: #fff;
+    color: #000000;
   }
 }
 
