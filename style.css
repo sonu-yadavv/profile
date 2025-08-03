@@ -498,35 +498,156 @@ section {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.skills-column {
-  flex: 1;
-  min-width: 200px;
-}
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: space-between;
+        }
 
-.skills-column h3 {
-  color: #e50914;
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
+        .skills-column {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.skills-column ul {
-  list-style-type: none;
-  padding: 0;
-}
+        .skills-column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
 
-.skills-column ul li {
-  margin-bottom: 5px;
-}
+        .skills-column h3 {
+            color: #e50914;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e50914;
+            padding-bottom: 10px;
+        }
+
+        .skills-column ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .skill-logo {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .skill-name {
+            font-size: 1em;
+            color: #333;
+            font-weight: 500;
+        }
 
 /*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
+.institution-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .institution-logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 5px;
+            border: 2px solid #e9ecef;
+        }
+
+        .institution-info h4 {
+            color: #e50914;
+            font-size: 1.3em;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .institution-info h5 {
+            color: #fff;
+            font-size: 1em;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .grade-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e50914, #ff6b6b);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px 0;
+            box-shadow: 0 3px 10px rgba(229, 9, 20, 0.3);
+        }
+
+        .institution-name {
+            color: #fff;
+            font-style: italic;
+            font-size: 1.1em;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .description {
+            color: #fff;
+            line-height: 1.6;
+            margin-top: 15px;
+        }
+
+        .university-badge {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            margin-top: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .subjects-badge {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 0.85em;
+            margin: 2px;
+        }
 .resume .resume-title {
   font-size: 26px;
   font-weight: 700;
@@ -584,7 +705,136 @@ section {
   background: #fff;
   border: 2px solid #e50914;
 }
+.job-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
 
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+            border-radius: 12px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 8px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo:hover {
+            transform: scale(1.05);
+            border-color: #e50914;
+        }
+
+        .job-info h4 {
+            color: #e50914;
+            font-size: 1.4em;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+
+        .job-info h5 {
+            color: #fff;
+            font-size: 1em;
+            margin: 0 0 8px 0;
+            font-weight: 500;
+            background: #f8f9fa;
+            padding: 4px 12px;
+            display: inline-block;
+        }
+
+        .company-name {
+            color: #fff;
+            font-style: italic;
+            font-size: 1.1em;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .achievements {
+            margin-top: 20px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #e50914;
+            font-size: 0.8em;
+            top: 2px;
+        }
+
+        .impact-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .metric-badge {
+            background: linear-gradient(135deg, #e50914, #ff6b6b);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(229, 9, 20, 0.3);
+        }
+
+        .tech-stack {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            margin: 3px;
+            border: 1px solid #bbdefb;
+        }
+
+        .current-role::before {
+            background: #28a745;
+            box-shadow: 0 0 0 3px #28a745;
+        }
+
+        .current-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/
