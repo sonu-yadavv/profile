@@ -1135,187 +1135,159 @@ section {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
-.services .icon-box .btn{
-  text-align: center;
-  margin-top: 20px;
-  position: bottom;
+/* Services Section - Redesigned with Skills Style */
+.services .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.services .icon-box .btn{
-  background-color: #e50914;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background-color 0.3s ease;
+.services .row {
+    gap: 20px 0; /* Vertical gap between rows */
 }
-
-.services .icon-box .btn:hover{
-  background-color: #000000;
-  color: #e50914;
-}
-
-
 
 .services .icon-box {
-  text-align: center;
-  padding: 70px 20px 80px 20px;
-  background: rgba(30, 30, 30, 0.8);
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-}
-
-.services .icon-box .icon {
-  margin: 0 auto;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease-in-out 0.3s;
-  position: relative;
-}
-
-.services .icon-box .icon i {
-  font-size: 36px;
-  transition: 0.5s;
-  color: #e50914;
-  position: relative;
-}
-
-.services .icon-box .icon svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.services .icon-box .icon svg path {
-  transition: 0.5s;
-  fill:rgb(104, 100, 100);
-}
-
-.services .icon-box h4 {
-  font-weight: 600;
-  margin: 10px 0 15px 0;
-  font-size: 22px;
-}
-
-.services .icon-box h4 a {
-  color: #e50914;
-  transition: ease-in-out 0.3s;
-}
-
-.services .icon-box p {
-  line-height: 24px;
-  font-size: 14px;
-  margin-bottom: 0;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 100%; /* Ensures equal height cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .services .icon-box:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-.services .iconbox-red i {
-  color: #db0000;
+.services .icon-box .icon {
+    margin: 0 auto 20px auto;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.services .iconbox-red:hover .icon i {
-  color: #fff;
+.services .icon-box .icon i {
+    font-size: 32px;
+    color: #e50914;
+    transition: 0.3s ease;
+    position: relative;
 }
 
-.services .iconbox-red:hover .icon path {
-  fill: #db0000;
+.services .icon-box .icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    height: 32px;
 }
 
-/*--------------------------------------------------------------
-# Testimonials
---------------------------------------------------------------*/
-.testimonials .section-header {
-  margin-bottom: 40px;
+.services .icon-box .icon svg path {
+    transition: 0.3s ease;
+    fill: #e50914;
 }
 
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
+.services .icon-box:hover .icon {
+    background-color: #e50914;
+    transform: scale(1.1);
 }
 
-.testimonials .testimonial-item {
-  text-align: center;
+.services .icon-box:hover .icon i {
+    color: #0793acff;
 }
 
-.testimonials .testimonial-item .testimonial-img {
-  width: 120px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  margin: 0 auto;
+.services .icon-box:hover .icon svg path {
+    fill: #0793acff;
 }
 
-.testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  color: #111;
+.services .icon-box h4 {
+    color: #e50914;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 10px;
+    display: inline-block;
+    transition: color 0.3s ease;
 }
 
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 15px 0;
+.services .icon-box h4 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: #90c8fc;
-  font-size: 26px;
+.services .icon-box p {
+    line-height: 1.6;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
 }
 
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
+.services .icon-box .btn {
+    background-color: #e50914;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
+.services .icon-box .btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
 }
 
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services .container {
+        padding: 0 15px;
+    }
+    
+    .services .icon-box {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .services .icon-box .icon {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 15px;
+    }
+    
+    .services .icon-box .icon i {
+        font-size: 28px;
+    }
+    
+    .services .icon-box h4 {
+        font-size: 1.2em;
+    }
+    
+    .services .icon-box p {
+        font-size: 13px;
+        margin-bottom: 15px;
+    }
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #e50914;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #e50914;
-}
-
-@media (min-width: 992px) {
-  .testimonials .testimonial-item p {
-    width: 80%;
-  }
-}
 /*--------------------------------------------------------------
 # Resume Download Button
 --------------------------------------------------------------*/
@@ -1343,6 +1315,197 @@ section {
   background-color: #000000;
   color: #e50914;
 }
+
+/*--------------------------------------------------------------
+# Subscribe Section
+--------------------------------------------------------------*/
+
+.subscribe-section {
+            background: linear-gradient(135deg, #e50914 0%, #cc0812 100%);
+            padding: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subscribe-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .subscribe-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subscribe-content {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .subscribe-content h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subscribe-content p {
+            font-size: 1.2em;
+            opacity: 0.9;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Form Styling */
+        .subscribe-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        #userForm {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        #userForm input {
+            color: black;
+            padding: 10px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        #userForm input:focus {
+            outline: none;
+            border-color: #e50914;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+            transform: translateY(-2px);
+        }
+
+        #userForm input::placeholder {
+            color: #6c757d;
+            transition: opacity 0.3s ease;
+        }
+
+        #userForm input:focus::placeholder {
+            opacity: 0.7;
+        }
+
+        #userForm button {
+            background: linear-gradient(135deg, #e50914 0%, #cc0812 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #userForm button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        #userForm button:hover::before {
+            left: 100%;
+        }
+
+        #userForm button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.4);
+        }
+
+        #userForm button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .subscribe-section {
+                padding: 40px 0;
+            }
+
+            .subscribe-content h2 {
+                font-size: 1.5em;
+            }
+
+            .subscribe-content p {
+                font-size: 1.1em;
+            }
+
+            .subscribe-form-container {
+                padding: 30px 25px;
+            }
+
+            #userForm {
+                gap: 15px;
+            }
+
+            #userForm input,
+            #userForm button {
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .subscribe-container {
+                padding: 0 15px;
+            }
+
+            .subscribe-content h2 {
+                font-size: 1.8em;
+            }
+
+            .subscribe-form-container {
+                padding: 25px 20px;
+            }
+        }
 
 
 /*--------------------------------------------------------------
