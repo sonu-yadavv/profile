@@ -683,14 +683,74 @@ code {
 /* -------------------------------- footer -------------------------------- */
 
 .site-footer {
-  padding: 44px 0;
+  padding: 56px 0 24px;
   border-top: 1px solid var(--line);
   background: var(--bg);
 }
-.footer-inner { text-align: center; }
-.footer-name { font-weight: 700; letter-spacing: -.02em; }
-.footer-tag { font-size: 14.3px; color: var(--text-2); margin: 6px auto 14px; max-width: 52ch; }
-.footer-meta { font-size: 12.8px; color: var(--text-3); }
+
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 40px 32px;
+  padding-bottom: 40px;
+}
+
+.footer-brand .brand { margin-bottom: 14px; }
+.footer-tag {
+  font-size: 14.3px;
+  color: var(--text-2);
+  max-width: 38ch;
+  margin-bottom: 14px;
+}
+.footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+.footer-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.footer-col h2 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+.footer-links { display: flex; flex-direction: column; gap: 9px; }
+.footer-links a,
+.footer-plain {
+  font-size: 14px;
+  color: var(--text-2);
+  transition: color .16s var(--ease);
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-links a span { font-size: .85em; opacity: .7; }
+.footer-plain { color: var(--text-3); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  font-size: 12.8px;
+  color: var(--text-3);
+}
+.footer-colophon { flex: 1 1 auto; text-align: center; }
+.footer-totop {
+  font-weight: 600;
+  color: var(--text-2);
+  transition: color .16s var(--ease);
+}
+.footer-totop:hover { color: var(--accent); }
 
 /* ------------------------------- to top --------------------------------- */
 
@@ -797,6 +857,13 @@ body.is-locked { overflow: hidden; }
 
 /* ------------------------------ responsive ------------------------------ */
 
+/* Brand takes the full width and the three link groups share a row beneath it.
+   Two columns left "Elsewhere" stranded on a row of its own. */
+@media (max-width: 1000px) {
+  .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-photo { order: -1; justify-self: start; }
@@ -837,7 +904,7 @@ body.is-locked { overflow: hidden; }
   .nav ul { flex-direction: column; gap: 2px; }
   .nav a { padding: 13px 10px; font-size: 16px; }
 
-  .brand-name { display: none; }
+  .site-header .brand-name { display: none; }
   .section-title { max-width: none; }
   .feature-head, .feature-body, .feature-actions { padding-inline: 20px; }
   .feature-actions { margin-top: 18px; padding-block: 18px 22px; }
@@ -853,6 +920,12 @@ body.is-locked { overflow: hidden; }
   .lightbox-stage { padding: 10px; }
   .lightbox-stage img { max-height: 60vh; }
   .to-top { right: 14px; bottom: 14px; }
+
+  .site-footer { padding-top: 40px; }
+  .footer-top { grid-template-columns: 1fr; gap: 30px; padding-bottom: 30px; }
+  .footer-tag { max-width: none; }
+  .footer-bottom { justify-content: flex-start; }
+  .footer-colophon { flex: 1 1 100%; text-align: left; order: 3; }
 }
 
 /* Touch targets. On a finger-driven device the inline text links were 17-23px
@@ -872,12 +945,16 @@ body.is-locked { overflow: hidden; }
   .project-links { gap: 8px 20px; }
   .contact-info li { padding-block: 8px; }
   .about-facts li { padding-block: 10px; }
-  .footer-inner a { min-height: 44px; display: inline-flex; align-items: center; }
+  .site-footer a { min-height: 44px; display: inline-flex; align-items: center; }
 
   /* Controls, not just text links: the icon buttons and small buttons were
      38-42px, which is close enough to look fine and just small enough to miss. */
   .icon-btn { width: 44px; height: 44px; }
   .to-top { width: 44px; height: 44px; }
+  /* Short labels like "About" are only ~35px wide. In a stacked list the whole
+     row is free space, so let the target fill it. Width, not align-self: the
+     flex item is the <li>, so stretching the <a> inside it does nothing. */
+  .footer-links a { width: 100%; }
   .btn-sm { padding: 12px 18px; }
   /* With the wordmark hidden on phones the brand shrinks to its 32px badge.
      Padded out to a 44px hit area without moving the badge itself. */

@@ -77,7 +77,14 @@
     window.requestAnimationFrame(function () {
       var y = window.scrollY;
       if (header) header.classList.toggle('is-stuck', y > 4);
-      if (toTop) toTop.classList.toggle('is-visible', y > 600);
+
+      /* Visible once you are well down the page, and gone again at the very
+         bottom — the footer has its own "Back to top" link, and the two sitting
+         beside each other just reads as a duplicate control. */
+      if (toTop) {
+        var nearBottom = y + window.innerHeight > document.documentElement.scrollHeight - 140;
+        toTop.classList.toggle('is-visible', y > 600 && !nearBottom);
+      }
 
       /* Whichever section owns the line just below the sticky header. */
       var mark = y + (header ? header.offsetHeight : 0) + 24;
@@ -296,5 +303,5 @@
   /* ------------------------------ footer -------------------------------- */
 
   var year = $('#year');
-  if (year) year.textContent = '© ' + new Date().getFullYear();
+  if (year) year.textContent = String(new Date().getFullYear());
 })();
