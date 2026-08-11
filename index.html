@@ -157,7 +157,27 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+          
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="150">
+            <div class="icon-box iconbox-red">
+              <div class="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 64 64">
+                  <path d="M12 6h30l10 10v42a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" fill="#9fdbf3" stroke="#0277bd" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M42 6v10h10" fill="#b2e5fb" stroke="#0277bd" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M18 24h12M18 31h16M18 38h9" stroke="#0277bd" stroke-width="2.4" stroke-linecap="round"/>
+                  <rect x="30" y="34" width="26" height="22" rx="3" fill="#fff" stroke="#374f68" stroke-width="2.4"/>
+                  <path d="M35 40h7M35 45h9M35 50h5" stroke="#374f68" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M47 39v13M44 41.5h5.5a2.5 2.5 0 0 1 0 5H44l6 5.5" fill="none" stroke="#71a58a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="50" cy="20" r="8" fill="#ffcc5c" stroke="#374f68" stroke-width="2.2"/>
+                  <path d="M46.5 20.2l2.6 2.6 4.6-5.2" fill="none" stroke="#374f68" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h4><a href="https://accounts-collection-demo.vercel.app">Accounts &amp; Collection Management System</a></h4>
+              <p>React platform that runs the receivables book end to end &ndash; ageing and outstanding pivots, a calling dashboard where one call is one action rather than one row, a four-stage dispute workflow with send-back and resubmit loops, party-ledger reconciliation against the accounting export including prior-year bills with no matching record, split payment allocation across several invoices, weekly collection forecasting and an exception report. Access is enforced per role at the route, not just hidden in the menu.</p>
+              <p style="font-size:14px;"><a href="https://accounts-collection-demo.vercel.app">Live demo</a> &nbsp;&middot;&nbsp; sign in with EMP101 / demo1234 &ndash; all data is fictional</p><br>
+            </div>
+          </div>
+<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box iconbox-red">
               <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 128 128">
@@ -173,7 +193,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box iconbox-red">
               <div class="icon">
                 <svg version="1.1" id="ecommerce_1_" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 115 115" style="enable-background:new 0 0 115 115" xml:space="preserve"><style>.st2{fill:#99734a}.st3{fill:#ff6f69}</style>
@@ -565,6 +585,13 @@
 
                     <div class="achievements">
                         <ul>
+                            <li>Built an Accounts &amp; Collection Management System in React that runs the receivables book end to end &ndash; ageing and outstanding pivots, collection follow-up, payment recording, dispute resolution and management MIS &ndash; replacing spreadsheet-based chasing for the accounts and collection teams</li>
+                            <li>Reconciled the receivables book against the Tally &quot;Sundry Debtors&quot; export in a party-ledger view, surfacing prior-year invoices that had no record in the system and making them followable and payable instead of invisible</li>
+                            <li>Fixed double-counted collections by replacing per-invoice crediting with a single allocated payment split oldest-first across the selected bills, so one client transfer covering several months is booked once</li>
+                            <li>Rebuilt follow-up reporting around one call = one action: a client-level follow-up writes to every bill that client owns, and those are grouped under a single call id so calling activity is measured accurately</li>
+                            <li>Digitised the credit-note dispute chain as a four-stage workflow (Service Manager &rarr; Sales Manager &rarr; Accounts) with send-back and resubmit loops, notifications and a full audit trail, and excluded disputed bills from bulk payment</li>
+                            <li>Closed a route-level access hole by enforcing page permissions on the route rather than only hiding sidebar links, and resolved every sign-in to the first page that account is actually allowed to open</li>
+                            <li>Published an exception report that names what is not adding up &ndash; unchased bills, stalled disputes, unapplied receipts, invoices missing from the book &ndash; with the evidence rows behind each finding</li>
                             <li>Architected and shipped a company-wide Transport Order &amp; Payment platform in Next.js and React, replacing a chain of Google Forms and Apps Script tools with a single stage-gated pipeline spanning delivery order creation, vehicle placement, payment approvals, dispatch challan and delivery confirmation</li>
                             <li>Digitised two multi-level payment approval chains with conditional routing, approver comments, hold/reject and edit-resubmit loops, revision history and automated email notifications to the next approver</li>
                             <li>Built role-based access control with Google OAuth for staff and OTP/password login for external transporters, governed by an admin-editable permission matrix</li>
@@ -597,6 +624,10 @@
                         <span class="tech-badge">Looker Studio</span>
                         <span class="tech-badge">Google Sites</span>
                         <span class="tech-badge">Process Automation</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Express.js</span>
+                        <span class="tech-badge">RBAC</span>
+                        <span class="tech-badge">Vite</span>
                     </div>
                 </div>
 
@@ -662,7 +693,12 @@
         <div class="resume-download">
           <a href="Sonu_Yadav_Resume.pdf" download="Sonu_Yadav_Resume.pdf">
               <button class="download-btn">
-                  Download My Resume
+                  Download My Resume (PDF)
+              </button>
+          </a>
+          <a href="Sonu_Yadav_Resume.docx" download="Sonu_Yadav_Resume.docx">
+              <button class="download-btn">
+                  Download as Word (DOCX)
               </button>
           </a>
       </div>
