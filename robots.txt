@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sonu-yadavv.github.io/profile/sitemap.xml

@@ -1,380 +1,300 @@
-/**
-* Template Name: MyResume
-* Updated: Jan 29 2024 with Bootstrap v5.3.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-(function() {
-  "use strict";
+/* =========================================================================
+   Sonu Yadav — portfolio
+   No dependencies. Everything here degrades: with JavaScript off you still get
+   the full page, working navigation and a contact form that submits normally.
+   ========================================================================= */
+(function () {
+  'use strict';
 
-  /**
-   * Popup trigger 
-   */
-      const popupContainer = document.getElementById('popup-container');
-      const popupImage = document.getElementById('popup-image');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
 
-      // Sample image sets with descriptions
-      const imageSets = {
-        'popup-trigger-1': [
-          { src: './result-analysis/dashboard.png', description: 'Dashboard view' },
-          { src: './result-analysis/cleaned.png', description: 'Cleaned Data' },
-          { src: './result-analysis/raw.png', description: 'Raw data before analysis' }
-        ],  
-        'popup-trigger-2': [
-          { src: './sales-analysis/Sales-dashboard.png', description: 'Sales dashboard' },
-          { src: './sales-analysis/sales-tableRelation.png', description: 'Sales table relations' }
-        ],
-        'popup-trigger-3': [
-          { src: './ad-analysis/Picture1.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture2.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture3.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture4.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture5.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture7.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture8.png', description: 'Glimse of Ad Analysis Final PPT Presentation' },
-          { src: './ad-analysis/Picture9.png', description: 'Glimse of Ad Analysis Final PPT Presentation' }
-        ],
-        'popup-trigger-4': [
-          { src: './blocker-chrome/blocked-page.png', description: 'Blocked Page' },
-          { src: './blocker-chrome/home.png', description: 'Pop Up Page' },
-          { src: './blocker-chrome/home2.png', description: 'Pop Up Page' },
-          { src: './blocker-chrome/home3.png', description: 'Pop Up Page' },
-          { src: './blocker-chrome/main-page.png', description: 'Home Page' },
-          { src: './blocker-chrome/premium.png', description: 'Premium' },
-          { src: './blocker-chrome/settings-page.png', description: 'Settings' },
-          { src: './blocker-chrome/stats.png', description: 'Stats' },
-          { src: './blocker-chrome/support.png', description: 'Support' }
-       ],
-        'popup-trigger-5': [ 
-          { src: './amazon-clone/home.png', description: 'Home Page' },
-          { src: './amazon-clone/login.png', description: 'Sign In Page' },
-          { src: './amazon-clone/checkout.png', description: 'Checkout Page' }  
-        ],  
-'popup-trigger-6': [ 
-          { src: './mes-system/dashboard.png', description: 'Dashboard' },
-          { src: './mes-system/productionTracking.png', description: 'Production Tracking' },
-          { src: './mes-system/inspection.png', description: 'Inspection' },
-{ src: './mes-system/inspectionList.png', description: 'Inspection List' }
-], 
-'popup-trigger-7': [ 
-          { src: './approval-system/email_approval.png', description: 'Approval Email Notification' },
-          { src: './approval-system/approval_page.png', description: 'Approval Page' },
-          { src: './approval-system/approved_status.png', description: 'Approval Status' }
-        ],  
-'popup-trigger-8': [ 
-          { src: './resumebank/resume_dashboard.png', description: 'Resume Dashboard' },
-          { src: './resumebank/detailed_positions.png', description: 'Detailed view of Positions.' }
-        ],  
-      };
+  /* ---------------------------- theme ----------------------------------- */
 
+  var root = document.documentElement;
+  var themeBtn = $('#theme-toggle');
 
-      let currentImageIndex = 0;
-      let currentImageSet = [];
-
-      // Function to display the current image and description
-      function displayImage() {
-        popupImage.src = currentImageSet[currentImageIndex].src;
-        document.getElementById('image-description').textContent = currentImageSet[currentImageIndex].description;
-      }
-
-      // Ensure popup is hidden on page load
-      window.onload = function() {
-        popupContainer.style.display = 'none'; // Hide popup on page load
-      };
-
-      Object.keys(imageSets).forEach(buttonId => {
-        const button = document.getElementById(buttonId);
-        console.log(button); // Log the button to check if it exists
-        if (button) {
-          button.addEventListener('click', (e) => {
-            currentImageSet = imageSets[buttonId];
-            currentImageIndex = 0;
-            displayImage();
-            popupContainer.style.display = 'block';
-            e.stopPropagation();
-          });
-        } else {
-          console.error(`Button with ID ${buttonId} not found`);
-        }
-      });
-
-      // Navigate to the previous image
-      prevBtn.addEventListener('click', (e) => {
-        currentImageIndex = (currentImageIndex - 1 + currentImageSet.length) % currentImageSet.length;
-        displayImage();
-        e.stopPropagation();
-      });
-
-      // Navigate to the next image
-      nextBtn.addEventListener('click', (e) => {
-        currentImageIndex = (currentImageIndex + 1) % currentImageSet.length;
-        displayImage();
-        e.stopPropagation();
-      });
-
-      // Close the popup when clicking outside of it
-      document.addEventListener('click', (e) => {
-        if (!popupContainer.contains(e.target)) {
-          popupContainer.style.display = 'none';
-        }
-      });
-
-      // Prevent popup close when clicking inside the popup content
-      popupContainer.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
-
-      // Close the popup with the Escape key
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && popupContainer.style.display === 'block') {
-          popupContainer.style.display = 'none';
-        }
-      });
-
-
-  /**
-   * Easy selector helper function
-   */
-  const select = (el, all = false) => {
-    el = el.trim()
-    if (all) {
-      return [...document.querySelectorAll(el)]
-    } else {
-      return document.querySelector(el)
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (themeBtn) {
+      themeBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     }
   }
 
-  /**
-   * Easy event listener function
-   */
-  const on = (type, el, listener, all = false) => {
-    let selectEl = select(el, all)
-    if (selectEl) {
-      if (all) {
-        selectEl.forEach(e => e.addEventListener(type, listener))
-      } else {
-        selectEl.addEventListener(type, listener)
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+    });
+  }
+  applyTheme(root.getAttribute('data-theme') || 'dark');
+
+  /* Follow the system if the visitor has never chosen explicitly. */
+  var mq = window.matchMedia('(prefers-color-scheme: light)');
+  var onSystemChange = function (e) {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (err) { /* ignore */ }
+    if (!stored) applyTheme(e.matches ? 'light' : 'dark');
+  };
+  if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+  else if (mq.addListener) mq.addListener(onSystemChange);
+
+  /* --------------------------- mobile nav ------------------------------- */
+
+  var nav = $('#nav');
+  var navToggle = $('#nav-toggle');
+
+  function closeNav() {
+    if (!nav) return;
+    nav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
+  }
+
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+  }
+
+  /* ------------------- header shadow + scroll spy ----------------------- */
+
+  var header = $('.site-header');
+  var toTop = $('#to-top');
+  var navLinks = $$('.nav a[href^="#"]');
+  var sections = navLinks
+    .map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); })
+    .filter(Boolean);
+
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      var y = window.scrollY;
+      if (header) header.classList.toggle('is-stuck', y > 4);
+      if (toTop) toTop.classList.toggle('is-visible', y > 600);
+
+      /* Whichever section owns the line just below the sticky header. */
+      var mark = y + (header ? header.offsetHeight : 0) + 24;
+      var current = null;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= mark) current = sections[i].id;
       }
+      navLinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current);
+      });
+
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------------------------- galleries -------------------------------- */
+
+  var GALLERIES = {
+    result: {
+      title: 'Result Analysis, June 2024',
+      shots: [
+        ['result-analysis/dashboard.webp', 'Interactive results dashboard'],
+        ['result-analysis/cleaned.webp', 'The dataset after cleaning'],
+        ['result-analysis/raw.webp', 'Raw data before analysis']
+      ]
+    },
+    sales: {
+      title: 'Sales Analysis Dashboard',
+      shots: [
+        ['sales-analysis/Sales-dashboard.webp', 'Sales performance dashboard'],
+        ['sales-analysis/sales-tableRelation.webp', 'Table relationships behind the model']
+      ]
+    },
+    ads: {
+      title: 'Facebook Ad Campaign Analysis',
+      shots: [
+        ['ad-analysis/Picture1.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture2.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture3.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture4.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture5.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture7.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture8.webp', 'Campaign analysis deck'],
+        ['ad-analysis/Picture9.webp', 'Campaign analysis deck']
+      ]
+    },
+    blocker: {
+      title: 'Website Access Blocker — Chrome extension',
+      shots: [
+        ['blocker-chrome/main-page.webp', 'Extension home'],
+        ['blocker-chrome/blocked-page.webp', 'A blocked site'],
+        ['blocker-chrome/home.webp', 'Pop-up'],
+        ['blocker-chrome/home2.webp', 'Pop-up'],
+        ['blocker-chrome/home3.webp', 'Pop-up'],
+        ['blocker-chrome/settings-page.webp', 'Settings'],
+        ['blocker-chrome/stats.webp', 'Usage statistics'],
+        ['blocker-chrome/premium.webp', 'Premium tier'],
+        ['blocker-chrome/support.webp', 'Support']
+      ]
+    },
+    amazon: {
+      title: 'Amazon Clone',
+      shots: [
+        ['amazon-clone/home.webp', 'Home page'],
+        ['amazon-clone/login.webp', 'Sign in'],
+        ['amazon-clone/checkout.webp', 'Checkout']
+      ]
+    },
+    mes: {
+      title: 'MES System',
+      shots: [
+        ['mes-system/dashboard.webp', 'Dashboard'],
+        ['mes-system/productionTracking.webp', 'Production tracking'],
+        ['mes-system/inspection.webp', 'Inspection'],
+        ['mes-system/inspectionList.webp', 'Inspection list']
+      ]
+    },
+    approval: {
+      title: 'Email Approval System',
+      shots: [
+        ['approval-system/email_approval.webp', 'Approval notification email'],
+        ['approval-system/approval_page.webp', 'Approval page'],
+        ['approval-system/approved_status.webp', 'Approval status']
+      ]
+    },
+    resumebank: {
+      title: 'Resume Bank',
+      shots: [
+        ['resumebank/resume_dashboard.webp', 'Résumé dashboard'],
+        ['resumebank/detailed_positions.webp', 'Detailed view of positions']
+      ]
     }
+  };
+
+  var lb = $('#lightbox');
+  var lbImg = $('#lb-img');
+  var lbTitle = $('#lb-title');
+  var lbCaption = $('#lb-caption');
+  var lbPrev = $('#lb-prev');
+  var lbNext = $('#lb-next');
+  var lbClose = $('#lb-close');
+
+  var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+  var shots = [];
+  var index = 0;
+  var opener = null;
+
+  function show(i) {
+    if (!shots.length) return;
+    index = (i + shots.length) % shots.length;
+    lbImg.src = shots[index][0];
+    lbImg.alt = shots[index][1];
+    lbCaption.textContent = shots[index][1] + '  ·  ' + (index + 1) + ' of ' + shots.length;
+    var single = shots.length < 2;
+    lbPrev.hidden = single;
+    lbNext.hidden = single;
+    /* Warm the next one so arrowing through does not flash. */
+    if (!single) { new Image().src = shots[(index + 1) % shots.length][0]; }
   }
 
-  /**
-   * Easy on scroll event listener 
-   */
-  const onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
+  function openGallery(key, trigger) {
+    var g = GALLERIES[key];
+    if (!g || !lb) return;
+    shots = g.shots;
+    opener = trigger;
+    lbTitle.textContent = g.title;
+    show(0);
+    lb.hidden = false;
+    document.body.classList.add('is-locked');
+    lbClose.focus();
   }
 
-  /**
-   * Navbar links active state on scroll
-   */
-  let navbarlinks = select('#navbar .scrollto', true)
-  const navbarlinksActive = () => {
-    let position = window.scrollY + 200
-    navbarlinks.forEach(navbarlink => {
-      if (!navbarlink.hash) return
-      let section = select(navbarlink.hash)
-      if (!section) return
-      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
-        navbarlink.classList.add('active')
-      } else {
-        navbarlink.classList.remove('active')
-      }
-    })
-  }
-  window.addEventListener('load', navbarlinksActive)
-  onscroll(document, navbarlinksActive)
-
-  /**
-   * Scrolls to an element with header offset
-   */
-  const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
-    window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
-    })
+  function closeGallery() {
+    if (!lb || lb.hidden) return;
+    lb.hidden = true;
+    /* Back to the placeholder rather than removing the attribute — a src-less
+       img is invalid and paints a broken-image icon. */
+    lbImg.src = BLANK;
+    lbImg.alt = '';
+    document.body.classList.remove('is-locked');
+    if (opener) { opener.focus(); opener = null; }
   }
 
-  /**
-   * Back to top button
-   */
-  let backtotop = select('.back-to-top')
-  if (backtotop) {
-    const toggleBacktotop = () => {
-      if (window.scrollY > 100) {
-        backtotop.classList.add('active')
-      } else {
-        backtotop.classList.remove('active')
-      }
-    }
-    window.addEventListener('load', toggleBacktotop)
-    onscroll(document, toggleBacktotop)
-  }
-
-  /**
-   * Mobile nav toggle
-   */
-  on('click', '.mobile-nav-toggle', function(e) {
-    select('body').classList.toggle('mobile-nav-active')
-    this.classList.toggle('bi-list')
-    this.classList.toggle('bi-x')
-  })
-
-  /**
-   * Scrool with ofset on links with a class name .scrollto
-   */
-  on('click', '.scrollto', function(e) {
-    if (select(this.hash)) {
-      e.preventDefault()
-
-      let body = select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
-        let navbarToggle = select('.mobile-nav-toggle')
-        navbarToggle.classList.toggle('bi-list')
-        navbarToggle.classList.toggle('bi-x')
-      }
-      scrollto(this.hash)
-    }
-  }, true)
-
-  /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
+  $$('[data-gallery]').forEach(function (btn) {
+    btn.addEventListener('click', function () { openGallery(btn.getAttribute('data-gallery'), btn); });
   });
 
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove()
+  if (lb) {
+    lbClose.addEventListener('click', closeGallery);
+    lbPrev.addEventListener('click', function () { show(index - 1); });
+    lbNext.addEventListener('click', function () { show(index + 1); });
+
+    /* Click the backdrop, not the panel. */
+    lb.addEventListener('mousedown', function (e) { if (e.target === lb) closeGallery(); });
+
+    document.addEventListener('keydown', function (e) {
+      if (lb.hidden) return;
+      if (e.key === 'Escape') { closeGallery(); return; }
+      if (e.key === 'ArrowLeft') { show(index - 1); return; }
+      if (e.key === 'ArrowRight') { show(index + 1); return; }
+
+      /* Keep Tab inside the dialog — a modal you can tab out of behind is not
+         modal, and a screen-reader user ends up lost on the page underneath. */
+      if (e.key !== 'Tab') return;
+      var focusables = $$('button:not([hidden])', lb);
+      if (!focusables.length) return;
+      var first = focusables[0];
+      var last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   }
 
-  /**
-   * Hero type effect
-   */
-  const typed = select('.typed')
-  if (typed) {
-    let typed_strings = typed.getAttribute('data-typed-items')
-    typed_strings = typed_strings.split(',')
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 100,
-      backSpeed: 50,
-      backDelay: 2000
+  /* --------------------------- contact form ------------------------------ */
+
+  var form = $('#contact-form');
+  var note = $('#form-note');
+
+  if (form && window.fetch) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      var original = btn.textContent;
+
+      note.classList.remove('is-error');
+      note.textContent = '';
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      /* The AJAX endpoint answers with CORS, so the visitor never leaves the
+         page. Without JavaScript the plain form action still posts normally. */
+      fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(new Error('HTTP ' + r.status)); })
+        .then(function () {
+          form.reset();
+          note.textContent = 'Thanks — your message is on its way. I will reply to the address you gave.';
+        })
+        .catch(function () {
+          note.classList.add('is-error');
+          note.innerHTML = 'That did not send. Please email me directly at '
+            + '<a href="mailto:sonu.yadavv.work@gmail.com">sonu.yadavv.work@gmail.com</a>.';
+        })
+        .then(function () {
+          btn.disabled = false;
+          btn.textContent = original;
+        });
     });
   }
 
-  /**
-   * Porfolio isotope and filter
-   */
-  window.addEventListener('load', () => {
-    let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item'
-      });
+  /* ------------------------------ footer -------------------------------- */
 
-      let portfolioFilters = select('#portfolio-flters li', true);
-
-      on('click', '#portfolio-flters li', function(e) {
-        e.preventDefault();
-        portfolioFilters.forEach(function(el) {
-          el.classList.remove('filter-active');
-        });
-        this.classList.add('filter-active');
-
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
-      }, true);
-    }
-
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
-
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
-
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Testimonials slider
-   */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
-
-  /**
-   * Animation on scroll
-   */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
-
-  /**
-   * Initiate Pure Counter 
-   */
-  new PureCounter();
-
-})()
+  var year = $('#year');
+  if (year) year.textContent = '© ' + new Date().getFullYear();
+})();
