@@ -44,21 +44,41 @@
 
   var nav = $('#nav');
   var navToggle = $('#nav-toggle');
+  var navScrim = $('#nav-scrim');
 
-  function closeNav() {
-    if (!nav) return;
-    nav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', 'Open menu');
+  function setNav(open) {
+    if (!nav || !navToggle) return;
+    nav.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (navScrim) navScrim.hidden = !open;
+    document.body.classList.toggle('is-locked', open);
   }
+
+  var closeNav = function () { setNav(false); };
 
   if (navToggle && nav) {
     navToggle.addEventListener('click', function () {
-      var open = nav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      setNav(!nav.classList.contains('is-open'));
     });
+
+    /* Tapping a link, the dimmed page, or Escape all close it — an open menu
+       with no way out but the button you came from is a trap on a phone. */
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeNav(); });
+    if (navScrim) navScrim.addEventListener('click', closeNav);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+        closeNav();
+        navToggle.focus();
+      }
+    });
+
+    /* Rotating to landscape can cross the breakpoint, which leaves the menu
+       "open" while the desktop nav is what is actually on screen — and the
+       scroll lock stuck on with it. */
+    window.addEventListener('resize', function () {
+      if (nav.classList.contains('is-open') && window.innerWidth > 760) closeNav();
+    });
   }
 
   /* ------------------- header shadow + scroll spy ----------------------- */

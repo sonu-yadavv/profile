@@ -203,7 +203,23 @@ svg.filled { fill: currentColor; stroke: none; }
 :root[data-theme='light'] .icon-sun { display: none; }
 :root[data-theme='light'] .icon-moon { display: block; }
 
+/* The hamburger swaps to a cross while the menu is open, so the control says
+   what it will do next rather than what it did. */
 .nav-toggle { display: none; }
+.nav-toggle .icon-x { display: none; }
+.nav-toggle[aria-expanded='true'] .icon-bars { display: none; }
+.nav-toggle[aria-expanded='true'] .icon-x { display: block; }
+.nav-toggle[aria-expanded='true'] { color: var(--text); border-color: var(--line-strong); }
+
+.nav-scrim {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  z-index: 95;
+  background: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.nav-scrim[hidden] { display: none; }
 
 /* -------------------------------- hero ---------------------------------- */
 
@@ -888,12 +904,19 @@ body.is-locked { overflow: hidden; }
 
   .nav-toggle { display: grid; }
 
+  /* `.nav` carries margin-left:auto on desktop, and that is what pushes the
+     controls to the right edge. Hidden here, the auto margin goes with it and
+     the brand, theme toggle and hamburger all collapsed against the left with
+     200px of dead space beside them. The actions take the job over. */
+  .header-actions { margin-left: auto; }
+
   .nav {
     position: fixed;
     inset: var(--header-h) 0 auto 0;
+    z-index: 96;
     margin: 0;
-    padding: 10px var(--gutter) 18px;
-    background: var(--bg);
+    padding: 8px var(--gutter) 14px;
+    background: var(--surface);
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow);
     display: none;
@@ -901,10 +924,16 @@ body.is-locked { overflow: hidden; }
     overflow-y: auto;
   }
   .nav.is-open { display: block; }
-  .nav ul { flex-direction: column; gap: 2px; }
-  .nav a { padding: 13px 10px; font-size: 16px; }
-
-  .site-header .brand-name { display: none; }
+  .nav ul { flex-direction: column; gap: 0; }
+  .nav li + li { border-top: 1px solid var(--line); }
+  .nav a {
+    padding: 14px 8px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 0;
+  }
+  .nav a:hover, .nav a:active { background: var(--surface-2); }
+  .nav a.is-active { color: var(--accent); font-weight: 600; }
   .section-title { max-width: none; }
   .feature-head, .feature-body, .feature-actions { padding-inline: 20px; }
   .feature-actions { margin-top: 18px; padding-block: 18px 22px; }
@@ -960,6 +989,12 @@ body.is-locked { overflow: hidden; }
      Padded out to a 44px hit area without moving the badge itself. */
   .brand { min-height: 44px; padding-inline: 6px; margin-inline-start: -6px; }
   .nav a { min-height: 44px; display: flex; align-items: center; }
+}
+
+/* Below this the wordmark and both controls stop fitting on one row, so the
+   badge carries the brand on its own. */
+@media (max-width: 359px) {
+  .site-header .brand-name { display: none; }
 }
 
 @media (max-width: 400px) {
