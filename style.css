@@ -38,9 +38,8 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
 :root {
   --wrap: 1140px;
   --gutter: 24px;
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 20px;
+  /* One flat radius everywhere — nothing rounder than 4px. */
+  --r: 4px;
   --ease: cubic-bezier(.2, .7, .3, 1);
   --header-h: 66px;
 }
@@ -105,7 +104,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
   top: -60px;
   z-index: 200;
   padding: 10px 16px;
-  border-radius: var(--r-sm);
+  border-radius: var(--r);
   background: var(--accent-solid);
   color: var(--accent-on);
   font-weight: 600;
@@ -116,7 +115,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
 :where(a, button, input, textarea, [tabindex]):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: var(--r);
 }
 
 .sr-only {
@@ -157,7 +156,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
   display: grid;
   place-items: center;
   width: 32px; height: 32px;
-  border-radius: 9px;
+  border-radius: var(--r);
   background: var(--accent-solid);
   color: var(--accent-on);
   font-size: 12.5px;
@@ -171,7 +170,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
 .nav a {
   display: block;
   padding: 8px 12px;
-  border-radius: var(--r-sm);
+  border-radius: var(--r);
   font-size: 14.5px;
   font-weight: 500;
   color: var(--text-2);
@@ -186,7 +185,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
   display: grid;
   place-items: center;
   width: 38px; height: 38px;
-  border-radius: 10px;
+  border-radius: var(--r);
   border: 1px solid var(--line);
   color: var(--text-2);
   background: var(--surface);
@@ -208,7 +207,9 @@ svg.filled { fill: currentColor; stroke: none; }
 
 /* -------------------------------- hero ---------------------------------- */
 
-.hero { padding: clamp(48px, 8vw, 96px) 0 clamp(36px, 5vw, 60px); }
+/* Bottom padding is light: the stats strip that used to close the hero is
+   gone, and the About section brings its own generous top padding. */
+.hero { padding: clamp(48px, 8vw, 96px) 0 clamp(8px, 2vw, 24px); }
 
 .hero-grid {
   display: grid;
@@ -224,7 +225,7 @@ svg.filled { fill: currentColor; stroke: none; }
   padding: 6px 13px;
   margin-bottom: 22px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--r);
   background: var(--surface);
   font-size: 13px;
   font-weight: 500;
@@ -232,7 +233,7 @@ svg.filled { fill: currentColor; stroke: none; }
 }
 .dot {
   width: 7px; height: 7px;
-  border-radius: 50%;
+  border-radius: var(--r);
   background: #2ecc71;
   box-shadow: 0 0 0 3px rgba(46, 204, 113, .18);
 }
@@ -264,7 +265,7 @@ svg.filled { fill: currentColor; stroke: none; }
   align-items: center;
   gap: 9px;
   padding: 12px 22px;
-  border-radius: 11px;
+  border-radius: var(--r);
   border: 1px solid transparent;
   font-size: 15px;
   font-weight: 600;
@@ -281,7 +282,7 @@ svg.filled { fill: currentColor; stroke: none; }
 .btn-ghost { border-color: var(--line-strong); color: var(--text); background: var(--surface); }
 .btn-ghost:hover { border-color: var(--text-3); }
 
-.btn-sm { padding: 9px 16px; font-size: 14px; border-radius: 9px; }
+.btn-sm { padding: 9px 16px; font-size: 14px; border-radius: var(--r); }
 
 .hero-social { display: flex; flex-wrap: wrap; gap: 20px; }
 .hero-social a {
@@ -301,25 +302,10 @@ svg.filled { fill: currentColor; stroke: none; }
   width: min(300px, 62vw);
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: var(--r);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
 }
-
-/* stats */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-  margin-top: clamp(36px, 6vw, 60px);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--line);
-  overflow: hidden;
-}
-.stat { padding: 20px 22px; background: var(--surface); }
-.stat dt { font-size: 13px; color: var(--text-3); margin-bottom: 4px; }
-.stat dd { font-size: clamp(1.5rem, 3vw, 1.9rem); font-weight: 800; letter-spacing: -.03em; }
 
 /* ------------------------------ sections -------------------------------- */
 
@@ -368,7 +354,7 @@ svg.filled { fill: currentColor; stroke: none; }
 .about-facts {
   padding: 8px 22px;
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border-radius: var(--r);
   background: var(--surface);
 }
 .about-facts li {
@@ -396,7 +382,7 @@ svg.filled { fill: currentColor; stroke: none; }
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
-  border-radius: var(--r-lg);
+  border-radius: var(--r);
   background: var(--surface);
   overflow: hidden;
   transition: border-color .2s var(--ease), transform .2s var(--ease);
@@ -433,7 +419,7 @@ svg.filled { fill: currentColor; stroke: none; }
   left: 4px;
   top: .58em;
   width: 7px; height: 7px;
-  border-radius: 2px;
+  border-radius: var(--r);
   background: var(--accent-solid);
 }
 .tick-list strong { color: var(--text); font-weight: 650; }
@@ -442,7 +428,7 @@ svg.filled { fill: currentColor; stroke: none; }
 .tags li {
   padding: 4px 11px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--r);
   background: var(--surface-2);
   font-size: 12.5px;
   font-weight: 500;
@@ -462,7 +448,7 @@ svg.filled { fill: currentColor; stroke: none; }
 .feature-note { font-size: 12.8px; color: var(--text-3); flex: 1 1 240px; }
 code {
   padding: 1px 6px;
-  border-radius: 5px;
+  border-radius: var(--r);
   background: var(--surface-2);
   border: 1px solid var(--line);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -483,7 +469,7 @@ code {
   flex-direction: column;
   padding: 22px;
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border-radius: var(--r);
   background: var(--surface);
   transition: border-color .2s var(--ease), transform .2s var(--ease);
 }
@@ -513,20 +499,61 @@ code {
 
 /* -------------------------------- skills -------------------------------- */
 
+/* Eight cards, so a four-column track makes two clean rows on a wide screen
+   instead of three with a hole in the last one. `align-items: start` stops a
+   short card being stretched to match the tallest in its row, which was
+   leaving a large empty box under "Cloud & tooling". */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  align-items: start;
+  gap: 18px;
 }
-.skill-group h3 {
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 12px;
+
+.skill-card {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  background: var(--surface);
+  transition: border-color .2s var(--ease);
 }
-.skill-group .tags { margin-top: 0; }
+.skill-card:hover { border-color: var(--line-strong); }
+
+.skill-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.skill-head h3 { font-size: 1rem; letter-spacing: -.01em; }
+
+.skill-icon {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  flex: none;
+  border-radius: var(--r);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.skill-icon svg { width: 19px; height: 19px; }
+
+.skill-card .tags { margin-top: 0; }
+
+/* The whole point of the section is which of these I actually reach for.
+   A flat wall of identical pills says everything is equally true, which is
+   never the case — so the day-to-day stack is marked and the rest recedes. */
+.tags li.is-core {
+  border-color: color-mix(in srgb, var(--accent-solid) 42%, transparent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.legend-chip {
+  display: inline-block;
+  width: 26px; height: 13px;
+  margin-right: 4px;
+  vertical-align: -1px;
+  border-radius: var(--r);
+  border: 1px solid color-mix(in srgb, var(--accent-solid) 42%, transparent);
+  background: var(--accent-soft);
+}
 
 /* ------------------------------ timeline -------------------------------- */
 
@@ -546,7 +573,7 @@ code {
   position: absolute;
   left: -26px; top: 7px;
   width: 12px; height: 12px;
-  border-radius: 50%;
+  border-radius: var(--r);
   background: var(--accent-solid);
   box-shadow: 0 0 0 4px var(--bg);
 }
@@ -560,7 +587,7 @@ code {
 
 .edu-list {
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border-radius: var(--r);
   background: var(--surface);
   overflow: hidden;
 }
@@ -579,7 +606,7 @@ code {
 .edu-meta { display: flex; align-items: center; gap: 12px; font-size: 13.5px; color: var(--text-3); }
 .pill {
   padding: 3px 10px;
-  border-radius: 999px;
+  border-radius: var(--r);
   background: var(--accent-soft);
   color: var(--accent);
   font-size: 12.5px !important;
@@ -600,7 +627,7 @@ code {
 .contact-form {
   padding: 26px;
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border-radius: var(--r);
   background: var(--surface);
 }
 .field { margin-bottom: 18px; }
@@ -615,7 +642,7 @@ code {
   width: 100%;
   padding: 11px 14px;
   border: 1px solid var(--line-strong);
-  border-radius: 10px;
+  border-radius: var(--r);
   background: var(--bg);
   font-size: 15px;
   transition: border-color .16s var(--ease), box-shadow .16s var(--ease);
@@ -626,7 +653,18 @@ code {
   border-color: var(--accent-solid);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.honey { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+/* Hidden from people, still in the DOM for bots that fill every field.
+   Clipped rather than parked at -9999px, which shows up as an off-canvas
+   element in layout tooling and can drag focus off-screen. */
+.honey {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .form-note { margin-top: 12px; font-size: 13.5px; color: var(--text-3); min-height: 1.2em; }
 .form-note.is-error { color: var(--accent); }
 
@@ -663,7 +701,7 @@ code {
   display: grid;
   place-items: center;
   width: 42px; height: 42px;
-  border-radius: 12px;
+  border-radius: var(--r);
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--text-2);
@@ -697,7 +735,7 @@ code {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
-  border-radius: var(--r-md);
+  border-radius: var(--r);
   background: var(--surface);
   overflow: hidden;
 }
@@ -725,7 +763,7 @@ code {
   max-width: 100%;
   max-height: 68vh;
   object-fit: contain;
-  border-radius: var(--r-sm);
+  border-radius: var(--r);
 }
 
 .lb-nav {
@@ -735,7 +773,7 @@ code {
   display: grid;
   place-items: center;
   width: 40px; height: 40px;
-  border-radius: 50%;
+  border-radius: var(--r);
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--text-2);
@@ -762,13 +800,24 @@ body.is-locked { overflow: hidden; }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-photo { order: -1; justify-self: start; }
-  .hero-photo img { width: min(180px, 44vw); border-radius: 18px; }
+  .hero-photo img { width: min(150px, 38vw); border-radius: var(--r); }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
-  :root { --gutter: 18px; }
+  :root {
+    --gutter: 18px;
+    /* Tighter rhythm on a phone. The same generous desktop spacing turns a
+       long single-page portfolio into a very long scroll. */
+    --header-h: 60px;
+  }
+
+  .section { padding: 48px 0; }
+  .hero { padding: 32px 0 8px; }
+  .hero-actions { margin-bottom: 22px; }
+  .sub-title { margin-top: 40px; }
+  .tl-item { padding-bottom: 30px; }
+  .section-lede { margin-bottom: 28px; }
 
   .nav-toggle { display: grid; }
 
@@ -781,21 +830,67 @@ body.is-locked { overflow: hidden; }
     border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow);
     display: none;
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
   }
   .nav.is-open { display: block; }
   .nav ul { flex-direction: column; gap: 2px; }
-  .nav a { padding: 12px 10px; font-size: 16px; }
+  .nav a { padding: 13px 10px; font-size: 16px; }
 
   .brand-name { display: none; }
   .section-title { max-width: none; }
   .feature-head, .feature-body, .feature-actions { padding-inline: 20px; }
+  .feature-actions { margin-top: 18px; padding-block: 18px 22px; }
+  .skill-card, .project, .contact-form { padding: 18px; }
+
+  /* Buttons go full width so they are easy to hit and read as primary. */
+  .hero-actions .btn,
+  .resume-cta .btn,
+  .contact-form button[type=submit] { flex: 1 1 100%; justify-content: center; }
+
   .lb-prev { left: 6px; }
   .lb-next { right: 6px; }
   .lightbox-stage { padding: 10px; }
+  .lightbox-stage img { max-height: 60vh; }
+  .to-top { right: 14px; bottom: 14px; }
 }
 
-@media (max-width: 420px) {
-  .stats { grid-template-columns: 1fr; }
+/* Touch targets. On a finger-driven device the inline text links were 17-23px
+   tall — under both the WCAG 2.2 minimum and every platform guideline. Scoped
+   to coarse pointers so the desktop layout keeps its tighter inline rhythm. */
+@media (pointer: coarse) {
+  .hero-social a,
+  .project h3 a,
+  .project-links a,
+  .project-links .link-btn,
+  .contact-info a,
+  .about-facts a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .project-links { gap: 8px 20px; }
+  .contact-info li { padding-block: 8px; }
+  .about-facts li { padding-block: 10px; }
+  .footer-inner a { min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* Controls, not just text links: the icon buttons and small buttons were
+     38-42px, which is close enough to look fine and just small enough to miss. */
+  .icon-btn { width: 44px; height: 44px; }
+  .to-top { width: 44px; height: 44px; }
+  .btn-sm { padding: 12px 18px; }
+  /* With the wordmark hidden on phones the brand shrinks to its 32px badge.
+     Padded out to a 44px hit area without moving the badge itself. */
+  .brand { min-height: 44px; padding-inline: 6px; margin-inline-start: -6px; }
+  .nav a { min-height: 44px; display: flex; align-items: center; }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 2.35rem; }
+  .hero-social { gap: 6px 18px; }
+  .edu-list li { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .feature-actions { flex-direction: column; align-items: stretch; }
+  .feature-actions .btn { justify-content: center; }
 }
 
 /* --------------------------- motion + print ----------------------------- */

@@ -158,14 +158,6 @@
         </div>
       </div>
 
-      <div class="wrap">
-        <dl class="stats">
-          <div class="stat"><dt>Order processing time</dt><dd>&minus;40%</dd></div>
-          <div class="stat"><dt>Manual errors</dt><dd>&minus;75%</dd></div>
-          <div class="stat"><dt>Pending task backlog</dt><dd>&minus;60%</dd></div>
-          <div class="stat"><dt>Platforms in production</dt><dd>2</dd></div>
-        </dl>
-      </div>
     </section>
 
     <!-- ===================== About ===================== -->
@@ -421,40 +413,118 @@
       <div class="wrap">
         <p class="section-kicker">Toolkit</p>
         <h2 id="skills-h" class="section-title">Skills</h2>
+        <p class="section-lede">
+          <span class="legend-chip" aria-hidden="true"></span>
+          Highlighted items are what I work in day to day; the rest I have shipped with and can
+          pick back up. No percentage bars — they never meant anything.
+        </p>
 
         <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <ul class="tags"><li>JavaScript (ES6+)</li><li>Python</li><li>SQL</li><li>HTML5</li><li>CSS3</li><li>Java</li><li>PHP</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Frontend</h3>
-            <ul class="tags"><li>React 19</li><li>Next.js 14</li><li>Vue.js</li><li>React Router</li><li>CSS Modules</li><li>Vite</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Backend &amp; APIs</h3>
-            <ul class="tags"><li>Node.js</li><li>Express.js</li><li>NextAuth</li><li>REST API design</li><li>OAuth 2.0</li><li>.NET</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Databases</h3>
-            <ul class="tags"><li>MongoDB</li><li>PostgreSQL</li><li>MySQL</li><li>SQL Server</li><li>Azure SQL</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Google Workspace</h3>
-            <ul class="tags"><li>Apps Script</li><li>Sheets API</li><li>Drive API</li><li>Docs API</li><li>SMTP mailers</li><li>Google Sites</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Analytics &amp; reporting</h3>
-            <ul class="tags"><li>Power BI</li><li>Tableau</li><li>Looker Studio</li><li>Pandas</li><li>NumPy</li><li>Advanced Excel</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Cloud &amp; tooling</h3>
-            <ul class="tags"><li>Vercel</li><li>AWS</li><li>Docker</li><li>Git</li><li>GitHub</li></ul>
-          </div>
-          <div class="skill-group">
-            <h3>Practices</h3>
-            <ul class="tags"><li>Role-based access control</li><li>Approval workflows</li><li>Audit trails</li><li>Data reconciliation</li><li>Automated notifications</li></ul>
-          </div>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5l-3 14"/></svg>
+              </span>
+              <h3>Languages</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">JavaScript (ES6+)</li><li class="is-core">Python</li><li class="is-core">SQL</li>
+              <li>HTML5</li><li>CSS3</li><li>Java</li><li>PHP</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
+              </span>
+              <h3>Frontend</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">React 19</li><li class="is-core">Next.js 14</li><li class="is-core">Vue.js</li>
+              <li>React Router</li><li>CSS Modules</li><li>Vite</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+              </span>
+              <h3>Backend &amp; APIs</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">Node.js</li><li class="is-core">Express.js</li><li class="is-core">REST API design</li>
+              <li>NextAuth</li><li>OAuth 2.0</li><li>.NET</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 12v6c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-6"/></svg>
+              </span>
+              <h3>Databases</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">MongoDB</li><li class="is-core">PostgreSQL</li>
+              <li>MySQL</li><li>SQL Server</li><li>Azure SQL</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6"/></svg>
+              </span>
+              <h3>Google Workspace</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">Apps Script</li><li class="is-core">Sheets API</li><li class="is-core">Drive API</li>
+              <li>Docs API</li><li>SMTP mailers</li><li>Google Sites</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+              </span>
+              <h3>Analytics &amp; reporting</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">Power BI</li><li class="is-core">Advanced Excel</li><li class="is-core">Pandas</li>
+              <li>Tableau</li><li>Looker Studio</li><li>NumPy</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 18.5A4.5 4.5 0 0 1 6.6 9.6a5.6 5.6 0 0 1 10.7-1.3A4.1 4.1 0 0 1 17.6 18.5Z"/></svg>
+              </span>
+              <h3>Cloud &amp; tooling</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">Vercel</li><li class="is-core">Git</li><li class="is-core">GitHub</li>
+              <li>AWS</li><li>Docker</li>
+            </ul>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-head">
+              <span class="skill-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 4.6 6v5.5c0 4.4 3 8.2 7.4 9.5 4.4-1.3 7.4-5.1 7.4-9.5V6Z"/><path d="m9 12 2.2 2.2L15.4 10"/></svg>
+              </span>
+              <h3>How I build</h3>
+            </div>
+            <ul class="tags">
+              <li class="is-core">Role-based access control</li><li class="is-core">Approval workflows</li>
+              <li>Audit trails</li><li>Data reconciliation</li><li>Automated notifications</li>
+            </ul>
+          </article>
+
         </div>
       </div>
     </section>
